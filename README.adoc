@@ -59,12 +59,12 @@ From Text:
 [source,python]
 ----
 import wave
-import StringIO
+import io
 
 esng.voice = 'english-us'
 wavs = esng.synth_wav('Hello World!')
-wav = wave.open(StringIO.StringIO(wavs))
-print wav.getnchannels(), wav.getframerate(), wav.getnframes()
+wav = wave.open(io.BytesIO(wavs))
+print(wav.getnchannels(), wav.getframerate(), wav.getnframes())
 ----
 result:
 ----
